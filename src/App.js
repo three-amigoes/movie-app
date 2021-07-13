@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import DiscoverDetails from './DiscoverDetails';
 
 function App() {
   const discoverURL = 'https://api.themoviedb.org/3/discover/movie/'; //Returns popular movie, doesn't take user query.
@@ -30,20 +31,22 @@ function App() {
 
 
   return (
-    <div className="App">
-      <ul className="gallery">
-        {
-          discoveryResults.map( (movie) => {
-            return(
-              <li>
-                {movie.original_title}
-
-              </li>
-            )
-          })
-        }
-      </ul>
-    </div>
+    <Router>
+      <div className="App">
+        <ul className="gallery">
+          {
+            discoveryResults.map( (movie) => {
+              return(
+                <li>
+                  {movie.original_title}
+                  
+                </li>
+              )
+            })
+          }
+        </ul>
+      </div>
+    </Router>
   );
 }
 
