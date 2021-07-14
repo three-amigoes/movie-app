@@ -30,7 +30,7 @@ const DiscoveryLanding = () => {
                 discoveryResults.map( (movie) => {
                 return(
                     <li key={movie.id}>
-                        <Link to={`/aaron/${movie.id}`}>{movie.original_title}</Link>
+                        <Link to={`/movie/${movie.id}`}>{movie.original_title}</Link>
                     </li>
                     )
                 })

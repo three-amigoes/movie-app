@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const DiscoveryDetails = (props) => {
+const MovieDetails = (props) => {
     const {movieID} = props.match.params;
     const movieURL = `https://api.themoviedb.org/3/movie/${movieID}`; // Accepts user query
     const apiKey = '9709355fc5ce17fa911605a13712678d';
@@ -16,6 +16,7 @@ const DiscoveryDetails = (props) => {
         .then( (rawData) => {
             return rawData.json();
         }).then( (jsonData) => {
+            console.log(jsonData)
             setMovieDetails(jsonData)
         })
     }, [])
@@ -28,4 +29,4 @@ const DiscoveryDetails = (props) => {
     )
 }
 
-export default DiscoveryDetails;
+export default MovieDetails;
