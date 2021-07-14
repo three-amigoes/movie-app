@@ -23,7 +23,7 @@ const MovieDetails = (props) => {
 
     return(
         <div>
-            <h1>{movieDetails.original_title}</h1>
+            <h1>{movieDetails.title}</h1>
             <p>{movieDetails.overview}</p>
         </div>
     )
