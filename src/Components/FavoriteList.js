@@ -5,7 +5,6 @@ const FavoriteList = () => {
     dbRef.on('value', (data) => {
         console.log(data.val());
     })
-    
 
     return(
         <div>
