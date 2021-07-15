@@ -1,3 +1,6 @@
+import firebase from "firebase/app";
+import 'firebase/database';
+
 const firebaseConfig = {
     apiKey: "AIzaSyDefbwUJmMQ00xMEYJKwQgK2qWbD6HnrRI",
     authDomain: "movie-trio.firebaseapp.com",
@@ -8,3 +11,5 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+export default firebase;
