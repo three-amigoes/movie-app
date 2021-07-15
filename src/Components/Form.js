@@ -1,15 +1,12 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const Form = (props) => {
+const Form = () => {
     let history = useHistory();
 
     const handleSearchQuery = (event) => {
         event.preventDefault();      
-        // console.log(event.target[0].value);
-        // setSearchQuery(event.target[0].value);
-        // window.location.replace(`/search/${event.target[0].value}`);
-        history.push(`/search/${event.target[0].value}`);
+        history.replace(`/search/${event.target[0].value}`);
     }
 
     return(
@@ -22,4 +19,8 @@ const Form = (props) => {
 }
 
 export default Form; 
+// export {namedValue1, namedValue2, namedValue3}
+// console.log(event.target[0].value);
+// setSearchQuery(event.target[0].value);
+// window.location.replace(`/search/${event.target[0].value}`);
 // onSubmit={(event) => props.handleSearchQuery(event)}
