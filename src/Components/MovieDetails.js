@@ -8,8 +8,7 @@ const MovieDetails = (props) => {
     const apiKey = '9709355fc5ce17fa911605a13712678d';
     const [movieDetails, setMovieDetails] = useState({});
 
-
-
+    
     useEffect( () => {
         const url = new URL(movieURL);
         url.search = new URLSearchParams({

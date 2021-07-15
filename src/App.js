@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Form from './Components/Form';
+import Header from './Components/Header';
 import DiscoveryLanding from './Components/DiscoveryLanding';
 import MovieDetails from './Components/MovieDetails';
 import SearchMovie from './Components/SearchMovie';
@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Form /> 
+        <Header /> 
 
         <Route exact path='/' component={DiscoveryLanding}></Route>
         <Route exact path='/movie/:movieID' component={MovieDetails}></Route>
