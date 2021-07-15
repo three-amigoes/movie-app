@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import FirebaseInteraction from "./FirebaseInteraction";
+
 
 const MovieDetails = (props) => {
     const {movieID} = props.match.params;
     const movieURL = `https://api.themoviedb.org/3/movie/${movieID}`; // Accepts user query
     const apiKey = '9709355fc5ce17fa911605a13712678d';
-    const [movieDetails, setMovieDetails] = useState({})
+    const [movieDetails, setMovieDetails] = useState({});
+
+
 
     useEffect( () => {
         const url = new URL(movieURL);
@@ -25,6 +29,10 @@ const MovieDetails = (props) => {
         <div>
             <h1>{movieDetails.title}</h1>
             <p>{movieDetails.overview}</p>
+            <FirebaseInteraction
+                movieDetails={movieDetails}
+            />
+
         </div>
     )
 }
