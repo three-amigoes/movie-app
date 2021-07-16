@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import FirebaseInteraction from "./FirebaseInteraction";
+import { useHistory } from "react-router";
 
 
 const MovieDetails = (props) => {
@@ -7,6 +8,12 @@ const MovieDetails = (props) => {
     const movieURL = `https://api.themoviedb.org/3/movie/${movieID}`; // Accepts user query
     const apiKey = '9709355fc5ce17fa911605a13712678d';
     const [movieDetails, setMovieDetails] = useState([]);
+
+    let history = useHistory();
+    const goToPreviousPath = () => {
+        history.goBack();
+    }
+
 
     
     useEffect( () => {
@@ -32,20 +39,10 @@ const MovieDetails = (props) => {
                 movieDetails={movieDetails}
             />
 
+            <button onClick={goToPreviousPath}>Go Back</button>
+
         </div>
     )
 }
 
 export default MovieDetails;
-
-// 07/15: 
-    // For in loop to go through firebase's object of objects.
-    // Display title on page
-    // Put in own component that mounts on click of icon/button
-    // Button to Remove from List AND firebase
-    // Working title (Mockbuster, Not Blockbuster)
-
-// 07/16: MVP FUNCTIONALITY COMPLETE! more time to sink in since no class
-    // Adding display on page (Movie Title, Movie Poster, YouTube, Genres, Actors (3), Year, Runtime, Director)
-    // Error handling when displaying more things on the page (e.g. director)
-    // Randomizer Inside List
