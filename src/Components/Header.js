@@ -5,16 +5,22 @@ import FavoriteList from "./FavoriteList";
 const Header = () => {
     let history = useHistory();
 
+    // Changes endpoint to allow search of user query
     const handleSearchQuery = (event) => {
         event.preventDefault();      
-        history.replace(`/search/${event.target[0].value}`);
+        history.push(`/search/${event.target[0].value}`);
+    }
+
+    // Changes endpoint to allow list to be displayed
+    const handleFavoriteButton = (event) => {
+        event.preventDefault();
+        history.push(`/favorites`);
     }
 
     return(
         <header>
             <h1>Movie App</h1>
-            <FavoriteList />
-            <button> View List </button>
+            <button onClick={handleFavoriteButton}> View List </button>
             
             <form onSubmit={handleSearchQuery} action="search">
                 <label htmlFor="search"></label>
