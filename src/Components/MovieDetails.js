@@ -6,7 +6,7 @@ const MovieDetails = (props) => {
     const {movieID} = props.match.params;
     const movieURL = `https://api.themoviedb.org/3/movie/${movieID}`; // Accepts user query
     const apiKey = '9709355fc5ce17fa911605a13712678d';
-    const [movieDetails, setMovieDetails] = useState({});
+    const [movieDetails, setMovieDetails] = useState([]);
 
     
     useEffect( () => {
@@ -19,7 +19,7 @@ const MovieDetails = (props) => {
         .then( (rawData) => {
             return rawData.json();
         }).then( (jsonData) => {
-            console.log(jsonData)
+            // console.log(jsonData)
             setMovieDetails(jsonData)
         })
     }, [])
