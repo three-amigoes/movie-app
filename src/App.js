@@ -28,7 +28,6 @@ export default App;
 // render={() => <SearchMovie searchQuery={searchQuery} /> }
 
 // 07/17: 
-    // Prevent multiple movie additions. Add option to toggle (add to favorites, remove form fav). 
     // Add no poster available OR Filter by release data/poster/genres/vote
     // Randomizer Inside List (WITH SLIDER!!!!!!)
     // Start styling page (grids, layout, etc)

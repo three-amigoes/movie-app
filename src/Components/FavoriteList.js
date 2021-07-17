@@ -30,6 +30,7 @@ const FavoriteList = () => {
 
     return (
         <>
+        {console.log(fireBaseList)}
             <ul>
                 {
                     // Displaying Firebase items on the page.
@@ -40,9 +41,9 @@ const FavoriteList = () => {
 
                                 <Link to={`/movie/${item.fireBaseInfo.id}`}>
                                     {
-                                        item.fireBaseInfo.poster_path ?
+                                        item.fireBaseInfo.poster ?
                                             <img 
-                                                src={`https://image.tmdb.org/t/p/original${item.fireBaseInfo.poster_path}`} 
+                                                src={`https://image.tmdb.org/t/p/original${item.fireBaseInfo.poster}`} 
                                                 alt={`Movie poster for ${item.fireBaseInfo.title}`} 
                                             />
                                         : null
