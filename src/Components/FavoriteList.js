@@ -34,7 +34,7 @@ const FavoriteList = () => {
                     // Displaying Firebase items on the page.
                     fireBaseList.map( (item) => {
                         return(
-                            <li>
+                            <li key={item.key}>
                                 {item.fireBaseInfo.title}
                                 {/* Looking for key and then removing object */}
                                 <button onClick={() => {removeFromList(item.key)}}>Remove</button>
