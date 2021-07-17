@@ -67,7 +67,7 @@ const MovieDetails = (props) => {
                     <ul>
                         {
                             movieDetails.credits.cast.slice(0,5).map( (actor) => {
-                                console.log(director);
+                                // console.log(director);
                                 return <li key={actor.id}>{actor.name}</li>;
                             })
                         }
