@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import FavoriteList from "./FavoriteList";
 
 const Header = () => {
     let history = useHistory();
