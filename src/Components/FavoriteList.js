@@ -3,12 +3,11 @@ import { useState, useEffect } from 'react'
 import BackButton from "./BackButton";
 
 const FavoriteList = () => {
-    const dbRef = firebase.database().ref();
     const [fireBaseList, setFireBaseList] = useState([]);
-    
     // Sending items into Firebase. 
     // Returns array of object with fireBaseInfo & key
     useEffect( () => {
+        const dbRef = firebase.database().ref();
         dbRef.on('value', (response) => {
             const data = response.val()
             const pseudoFBList = []
@@ -24,6 +23,7 @@ const FavoriteList = () => {
 
     // Removing items from Firebase
     const removeFromList = (fireBaseItem) => {
+        const dbRef = firebase.database().ref();
         dbRef.child(fireBaseItem).remove();
     }
 

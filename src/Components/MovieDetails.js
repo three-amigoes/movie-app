@@ -6,13 +6,14 @@ import Ternary from "./Ternary";
 
 const MovieDetails = (props) => {
     const {movieID} = props.match.params;
-    const movieURL = `https://api.themoviedb.org/3/movie/${movieID}`; // Accepts user query
-    const apiKey = '9709355fc5ce17fa911605a13712678d';
     const [movieDetails, setMovieDetails] = useState([]);
     const [loading, setLoading] = useState(true) 
     const [director, setDirector] = useState('')
     
     useEffect( () => {
+        
+        const apiKey = '9709355fc5ce17fa911605a13712678d';
+        const movieURL = `https://api.themoviedb.org/3/movie/${movieID}`;
         setLoading(true)
         const url = new URL(movieURL);
         url.search = new URLSearchParams({
@@ -34,7 +35,7 @@ const MovieDetails = (props) => {
 
             setLoading(false)
         })
-    }, [])
+    }, [movieID])
 
 
 
