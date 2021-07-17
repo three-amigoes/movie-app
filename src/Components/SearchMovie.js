@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BackButton from "./BackButton";
+import Ternary from "./Ternary";
 
 const SearchMovie = (props) => {
     const {movieName} = props.match.params;
@@ -13,14 +14,15 @@ const SearchMovie = (props) => {
     useEffect( () => {
         const url = new URL(searchURL);
         url.search = new URLSearchParams({
-        api_key: apiKey,
-        query: movieName,
-        adult: false,
+            api_key: apiKey,
+            query: movieName,
+            adult: false,
         })
         fetch(url)
         .then( (rawData) => {
             return rawData.json();
         }).then( (jsonData) => {
+            console.log(jsonData.results)
             setSearchResults(jsonData.results);
         })
     }, [movieName])
@@ -32,7 +34,21 @@ const SearchMovie = (props) => {
                     searchResults.map( (movie) => {
                         return(
                             <li key={movie.id}>
-                                <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
+
+                                <Link to={`/movie/${movie.id}`}>
+                                    {
+                                        movie.poster_path ?
+                                            <img 
+                                                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} 
+                                                alt={`Movie poster for ${movie.title}`} 
+                                            />
+                                        : null
+                                    }
+                                </Link>
+
+                                <h2>{movie.title}</h2>
+                                <Ternary input={movie.vote_average.toFixed(1)} category="Score: " ending="/10" />
+
                             </li>
                         )
                     })

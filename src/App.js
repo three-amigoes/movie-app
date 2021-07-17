@@ -27,15 +27,17 @@ export default App;
 // Want to pass parameter into component, need to use render={} instead of component={}
 // render={() => <SearchMovie searchQuery={searchQuery} /> }
 
-// 07/16: MVP FUNCTIONALITY COMPLETE! more time to sink in since no class
-    // Layout of details (Movie Title, Movie Poster, YouTube, Genres, Actors (3), Year, Runtime, Director)
-      // List Items, Search Items, Home Items
-    // Error handling when displaying more things on the page (e.g. director)
+// 07/17: 
     // Prevent multiple movie additions. Add option to toggle (add to favorites, remove form fav). 
+    // Add no poster available OR Filter by release data/poster/genres/vote
     // Randomizer Inside List (WITH SLIDER!!!!!!)
-    // Start styling page (deciding on layout)
-    // Create multiple lists
+    // Start styling page (grids, layout, etc)
 
-// 07/17 & 07/18 : 
+// 07/18: 
     // Aim to finish styling & make responsive
 
+
+// Post Ideas:
+// Create Multiple Lists (Carlie)
+// Authentication
+// 

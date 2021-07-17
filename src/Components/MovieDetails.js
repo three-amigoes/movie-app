@@ -24,14 +24,13 @@ const MovieDetails = (props) => {
         .then( (rawData) => {
             return rawData.json();
         }).then( (jsonData) => {
-            console.log(jsonData)
             setMovieDetails(jsonData)
 
             const findingDirector = jsonData.credits.crew.find( (position) => {
-                return position.job === "Director"
+                    return position.job === "Director"
             })
 
-            setDirector(findingDirector)
+            findingDirector === undefined ? setDirector('') : setDirector(findingDirector)
 
             setLoading(false)
         })
@@ -52,7 +51,7 @@ const MovieDetails = (props) => {
             <Ternary input={movieDetails.original_language.toUpperCase()} category="Language: " />
             <Ternary input={movieDetails.budget} category="Budget: $" />
             <Ternary input={movieDetails.revenue} category="Revenue: $" />
-            <Ternary input={movieDetails.runtime} category="Runtime: " />
+            <Ternary input={movieDetails.runtime} category="Runtime: " ending=" minutes" />
             <Ternary input={movieDetails.tagline} category="Tag Line: " />
             <Ternary input={movieDetails.overview} category="Summary: " />
             <Ternary input={movieDetails.release_date} category="Release Date: " />
@@ -69,6 +68,7 @@ const MovieDetails = (props) => {
                     <ul>
                         {
                             movieDetails.credits.cast.slice(0,5).map( (actor) => {
+                                console.log(director);
                                 return <li key={actor.id}>{actor.name}</li>;
                             })
                         }
