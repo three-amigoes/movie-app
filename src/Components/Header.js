@@ -19,7 +19,7 @@ const Header = () => {
 
     return(
         <header>
-            <h1>Movie App</h1>
+            <h1><a href="/">Movie App</a></h1>
             <button onClick={handleFavoriteButton}> View List </button>
             
             <form onSubmit={handleSearchQuery} action="search">
