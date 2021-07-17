@@ -1,22 +1,19 @@
 import { useEffect, useState } from "react";
 import FirebaseInteraction from "./FirebaseInteraction";
-import { useHistory } from "react-router";
-
+import ReactPlayer from 'react-player/youtube'
+import BackButton from "./BackButton";
+import Ternary from "./Ternary";
 
 const MovieDetails = (props) => {
     const {movieID} = props.match.params;
     const movieURL = `https://api.themoviedb.org/3/movie/${movieID}`; // Accepts user query
     const apiKey = '9709355fc5ce17fa911605a13712678d';
     const [movieDetails, setMovieDetails] = useState([]);
-
-    let history = useHistory();
-    const goToPreviousPath = () => {
-        history.goBack();
-    }
-
-
+    const [loading, setLoading] = useState(true) 
+    const [director, setDirector] = useState('')
     
     useEffect( () => {
+        setLoading(true)
         const url = new URL(movieURL);
         url.search = new URLSearchParams({
             api_key: apiKey,
@@ -26,23 +23,92 @@ const MovieDetails = (props) => {
         .then( (rawData) => {
             return rawData.json();
         }).then( (jsonData) => {
-            // console.log(jsonData)
+            console.log(jsonData)
             setMovieDetails(jsonData)
+
+            const findingDirector = jsonData.credits.crew.find( (position) => {
+                return position.job === "Director"
+            })
+
+            setDirector(findingDirector)
+
+            setLoading(false)
         })
     }, [])
 
+
+
     return(
+        loading ? <p> Loading </p> :
         <div>
             <h1>{movieDetails.title}</h1>
-            <p>{movieDetails.overview}</p>
+
             <FirebaseInteraction
                 movieDetails={movieDetails}
             />
 
-            <button onClick={goToPreviousPath}>Go Back</button>
+            {movieDetails.imdb_id ? <a href={`https://www.imdb.com/title/${movieDetails.imdb_id}`}>IMDB</a> : null}
+            <Ternary input={movieDetails.original_language.toUpperCase()} category="Language: " />
+            <Ternary input={movieDetails.budget} category="Budget: $" />
+            <Ternary input={movieDetails.revenue} category="Revenue: $" />
+            <Ternary input={movieDetails.runtime} category="Runtime: " />
+            <Ternary input={movieDetails.tagline} category="Tag Line: " />
+            <Ternary input={movieDetails.overview} category="Summary: " />
+            <Ternary input={movieDetails.release_date} category="Release Date: " />
+            <Ternary input={director.name} category="Director: " />
 
-        </div>
-    )
+
+            { movieDetails.videos.results[0] 
+            ? <ReactPlayer url={`https://www.youtube.com/watch?v=${movieDetails.videos.results[0].key}`} />
+            : null
+            }
+
+            {
+                movieDetails.credits.cast ?             
+                    <ul>
+                        {
+                            movieDetails.credits.cast.slice(0,5).map( (actor) => {
+                                return <li key={actor.id}>{actor.name}</li>;
+                            })
+                        }
+                    </ul>
+                : null
+            }
+
+            {
+                movieDetails.genres ?
+                    <ul>
+                        {
+                            movieDetails.genres.map( (genre) => {
+                                return <li key={genre.id}>{genre.name}</li>;
+                            })
+                        }
+                    </ul>
+                : null
+            }
+
+            {
+                movieDetails.poster_path ?
+                    <img 
+                        src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`} 
+                        alt={`Movie poster for ${movieDetails.title}`} 
+                    />
+                : null
+            }
+
+            {
+                movieDetails.backdrop_path ?
+                    <img 
+                        src={`https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`} 
+                        alt={`Backdrop path for ${movieDetails.title}`} 
+                    />
+                : null
+            }
+
+            <BackButton />
+
+        </div> 
+    ) 
 }
 
 export default MovieDetails;

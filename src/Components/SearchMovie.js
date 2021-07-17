@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import BackButton from "./BackButton";
 
 const SearchMovie = (props) => {
     const {movieName} = props.match.params;
@@ -25,17 +26,21 @@ const SearchMovie = (props) => {
     }, [movieName])
 
     return(
-        <ul>
-            {
-                searchResults.map( (movie) => {
-                    return(
-                        <li key={movie.id}>
-                            <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
-                        </li>
-                    )
-                })
-            }
-        </ul>
+        <>
+            <ul>
+                {
+                    searchResults.map( (movie) => {
+                        return(
+                            <li key={movie.id}>
+                                <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+            
+            <BackButton />
+        </>
     )
 }
 

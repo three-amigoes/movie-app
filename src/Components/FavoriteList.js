@@ -1,6 +1,6 @@
 import firebase from "./firebase";
 import { useState, useEffect } from 'react'
-import { useHistory } from "react-router-dom";
+import BackButton from "./BackButton";
 
 const FavoriteList = () => {
     const dbRef = firebase.database().ref();
@@ -27,12 +27,6 @@ const FavoriteList = () => {
         dbRef.child(fireBaseItem).remove();
     }
 
-        // Go back button 
-    let history = useHistory();
-    const goToPreviousPath = () => {
-        history.goBack();
-    }
-
     return (
         <>
             <ul>
@@ -40,7 +34,7 @@ const FavoriteList = () => {
                     // Displaying Firebase items on the page.
                     fireBaseList.map( (item) => {
                         return(
-                            <li>
+                            <li key={item.key}>
                                 {item.fireBaseInfo.title}
                                 {/* Looking for key and then removing object */}
                                 <button onClick={() => {removeFromList(item.key)}}>Remove</button>
@@ -50,7 +44,7 @@ const FavoriteList = () => {
                 }
             </ul>
 
-            <button onClick={goToPreviousPath}>Go Back</button>
+            <BackButton />
         </>
     )
 }
