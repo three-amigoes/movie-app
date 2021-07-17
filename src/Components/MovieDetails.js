@@ -11,7 +11,6 @@ const MovieDetails = (props) => {
     const [director, setDirector] = useState('')
     
     useEffect( () => {
-        
         const apiKey = '9709355fc5ce17fa911605a13712678d';
         const movieURL = `https://api.themoviedb.org/3/movie/${movieID}`;
         setLoading(true)

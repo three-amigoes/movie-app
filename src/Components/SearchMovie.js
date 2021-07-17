@@ -2,16 +2,19 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BackButton from "./BackButton";
 import Ternary from "./Ternary";
+import NoResults from "./NoResults";
 
 const SearchMovie = (props) => {
     const {movieName} = props.match.params;
     const [searchResults, setSearchResults] = useState([]);
+    const [loading, SetLoading] = useState(true)
 
     const searchURL = 'https://api.themoviedb.org/3/search/movie/'; //Returns popular movie, doesn't take user query.
     const apiKey = '9709355fc5ce17fa911605a13712678d';
 
 
     useEffect( () => {
+        SetLoading(true)
         const url = new URL(searchURL);
         url.search = new URLSearchParams({
             api_key: apiKey,
@@ -24,11 +27,19 @@ const SearchMovie = (props) => {
         }).then( (jsonData) => {
             console.log(jsonData.results)
             setSearchResults(jsonData.results);
+            SetLoading(false)
         })
     }, [movieName])
 
     return(
+        loading ? <p> Loading </p> :
+
         <>
+
+            { 
+            
+            searchResults.length !== 0 ?
+
             <ul>
                 {
                     searchResults.map( (movie) => {
@@ -54,6 +65,10 @@ const SearchMovie = (props) => {
                     })
                 }
             </ul>
+
+            : <NoResults /> 
+
+            }
             
             <BackButton />
         </>
