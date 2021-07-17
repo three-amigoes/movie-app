@@ -93,7 +93,10 @@ const MovieDetails = (props) => {
                         src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`} 
                         alt={`Movie poster for ${movieDetails.title}`} 
                     />
-                : null
+                : <img 
+                        src="https://placekeanu.com/500/350"
+                        alt={`Movie poster for ${movieDetails.title}`} 
+                    />
             }
 
             {

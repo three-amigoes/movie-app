@@ -20,22 +20,24 @@ const SearchMovie = (props) => {
             api_key: apiKey,
             query: movieName,
             adult: false,
+            // page: 1
         })
         fetch(url)
         .then( (rawData) => {
             return rawData.json();
         }).then( (jsonData) => {
-            console.log(jsonData.results)
+            console.log(jsonData);
             setSearchResults(jsonData.results);
             SetLoading(false)
         })
+
     }, [movieName])
 
     return(
         loading ? <p> Loading </p> :
 
         <>
-
+        {console.log(searchResults)}
             { 
             
             searchResults.length !== 0 ?
@@ -53,7 +55,11 @@ const SearchMovie = (props) => {
                                                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} 
                                                 alt={`Movie poster for ${movie.title}`} 
                                             />
-                                        : null
+                                        : 
+                                        <img 
+                                                src="https://placekeanu.com/500/350" 
+                                                alt={`Movie poster for ${movie.title}`} 
+                                        />
                                     }
                                 </Link>
 

@@ -1,3 +1,4 @@
+import "../App.css"
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'; 
 import Ternary from "./Ternary";
@@ -26,7 +27,7 @@ const DiscoveryLanding = () => {
 
 
     return(
-        <ul className="gallery">
+        <ul className="gallery wrapper">
             {
                 discoveryResults.map( (movie) => {
                 return(

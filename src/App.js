@@ -1,3 +1,4 @@
+import "./App";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './Components/Header';
 import DiscoveryLanding from './Components/DiscoveryLanding';
@@ -28,9 +29,9 @@ export default App;
 // render={() => <SearchMovie searchQuery={searchQuery} /> }
 
 // 07/17: 
-    // Add no poster available OR Filter by release data/poster/genres/vote
-    // Randomizer Inside List (WITH SLIDER!!!!!!)
-    // Start styling page (grids, layout, etc)
+// Start styling page (grids, layout, etc)
+// Randomizer Inside List (WITH SLIDER!!!!!!)
+// Add no poster available OR Filter by release data/poster/genres/vote
 
 // 07/18: 
     // Aim to finish styling & make responsive
