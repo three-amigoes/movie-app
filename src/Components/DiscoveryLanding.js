@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'; 
+import Ternary from "./Ternary";
 
 const DiscoveryLanding = () => {
     const discoverURL = 'https://api.themoviedb.org/3/discover/movie/'; //Returns popular movie, doesn't take user query.
@@ -30,7 +31,20 @@ const DiscoveryLanding = () => {
                 discoveryResults.map( (movie) => {
                 return(
                     <li key={movie.id}>
-                        <Link to={`/movie/${movie.id}`}>{movie.original_title}</Link>
+                        <Link to={`/movie/${movie.id}`}>
+                            {
+                                movie.poster_path ?
+                                    <img 
+                                        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} 
+                                        alt={`Movie poster for ${movie.title}`} 
+                                    />
+                                : null
+                            }
+                        </Link>
+
+                        <h2>{movie.original_title}</h2>
+                        <Ternary input={movie.vote_average.toFixed(1)} category="Score: " ending="/10"/>
+
                     </li>
                     )
                 })

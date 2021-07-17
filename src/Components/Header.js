@@ -15,9 +15,15 @@ const Header = () => {
         history.push(`/favorites`);
     }
 
+    // Changes endpoint to allow list to be displayed
+    const handleHomeButton = (event) => {
+        event.preventDefault();
+        history.push(`/`);
+    }
+
     return(
         <header>
-            <h1><a href="/">Movie App</a></h1>
+            <h1 onClick={handleHomeButton}>Movie App</h1>
             <button onClick={handleFavoriteButton}> View List </button>
             
             <form onSubmit={handleSearchQuery} action="search">
