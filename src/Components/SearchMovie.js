@@ -1,3 +1,5 @@
+import "../App.css"
+import poster from '../assets/poster.png'
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BackButton from "./BackButton";
@@ -20,27 +22,29 @@ const SearchMovie = (props) => {
             api_key: apiKey,
             query: movieName,
             adult: false,
+            // page: 1
         })
         fetch(url)
         .then( (rawData) => {
             return rawData.json();
         }).then( (jsonData) => {
-            console.log(jsonData.results)
+            console.log(jsonData);
             setSearchResults(jsonData.results);
             SetLoading(false)
         })
+
     }, [movieName])
 
     return(
         loading ? <p> Loading </p> :
 
         <>
-
+        {console.log(searchResults)}
             { 
             
             searchResults.length !== 0 ?
-
-            <ul>
+            
+            <ul className="gallery wrapper">
                 {
                     searchResults.map( (movie) => {
                         return(
@@ -53,12 +57,21 @@ const SearchMovie = (props) => {
                                                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} 
                                                 alt={`Movie poster for ${movie.title}`} 
                                             />
-                                        : null
+                                        : 
+                                        <>
+                                            <img 
+                                                src={poster} 
+                                                alt={`Movie poster for ${movie.title}`} 
+                                            />
+                                            <div className="noPosterTitle">
+                                                <h2>{movie.title}</h2>
+                                            </div>
+                                        </>
                                     }
                                 </Link>
 
-                                <h2>{movie.title}</h2>
-                                <Ternary input={movie.vote_average.toFixed(1)} category="Score: " ending="/10" />
+
+                                {/* <Ternary input={movie.vote_average.toFixed(1)} category="Score: " ending="/10" /> */}
 
                             </li>
                         )
@@ -70,7 +83,9 @@ const SearchMovie = (props) => {
 
             }
             
-            <BackButton />
+            <div className="searchBack wrapper">
+                <BackButton />
+            </div>  
         </>
     )
 }

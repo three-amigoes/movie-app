@@ -36,8 +36,8 @@ const FirebaseInteraction  = ({movieDetails}) => {
         <>
             {
                 found  
-                ? <p> Already in List! </p> 
-                : <button class="buttonFB" onClick={sendToFirebase}> Add to List </button>
+                ? <p className="alreadyAdded"> Favourited! </p> 
+                : <button class="buttonFB" onClick={sendToFirebase}> &#9733; Add to List </button>
             }
             
         </>

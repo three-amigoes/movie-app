@@ -1,3 +1,4 @@
+import "../App.css"
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'; 
 import Ternary from "./Ternary";
@@ -11,9 +12,7 @@ const DiscoveryLanding = () => {
         const url = new URL(discoverURL);
         url.search = new URLSearchParams({
         api_key: apiKey,
-        // query: 'pokemon',
         adult: false,
-        // primary_release_year: 1999,
         })
         fetch(url)
         .then( (rawData) => {
@@ -26,30 +25,36 @@ const DiscoveryLanding = () => {
 
 
     return(
-        <ul className="gallery">
-            {
-                discoveryResults.map( (movie) => {
-                return(
-                    <li key={movie.id}>
-                        <Link to={`/movie/${movie.id}`}>
-                            {
-                                movie.poster_path ?
-                                    <img 
-                                        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} 
-                                        alt={`Movie poster for ${movie.title}`} 
-                                    />
-                                : null
-                            }
-                        </Link>
+        <div>
+            <h1> Welcome to <span className="titleH1"> NotBlockbuster</span> !</h1>
+            <ul className="gallery wrapper">
+                {
+                    discoveryResults.map( (movie) => {
+                    return(
+                        
+                        <li key={movie.id}>
+                            <Link to={`/movie/${movie.id}`}>
+                                {
+                                    movie.poster_path ?
+                                        <img 
+                                            src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} 
+                                            alt={`Movie poster for ${movie.title}`} 
+                                        />
+                                    : null
+                                }
+                            </Link>
 
-                        <h2>{movie.original_title}</h2>
-                        <Ternary input={movie.vote_average.toFixed(1)} category="Score: " ending="/10"/>
+                            <div className="movieCardText">
+                                {/* <h2>{movie.title}</h2> */}
+                                {/* <Ternary input={movie.vote_average.toFixed(1)} ending="/10"/> */}
+                            </div>
 
-                    </li>
-                    )
-                })
-            }
-        </ul>
+                        </li>
+                        )
+                    })
+                }
+            </ul>
+        </div>
     )
 }
 
