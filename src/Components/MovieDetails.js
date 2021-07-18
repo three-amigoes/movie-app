@@ -86,7 +86,7 @@ const MovieDetails = (props) => {
             <div className="rightColumn">     
                 <div className="titleRow">
                         {movieDetails.imdb_id 
-                        ? <h1 className="title"><a className="imdb" href={`https://www.imdb.com/title/${movieDetails.imdb_id}`}>{movieDetails.title}</a></h1>
+                        ? <h1 className="title"><a className="imdb" href={`https://www.imdb.com/title/${movieDetails.imdb_id}`} target="_blank" rel="noopener noreferrer">{movieDetails.title}</a></h1>
                         : <h1 className="title">{movieDetails.title}</h1>}
                     <Ternary className="runtime" input={movieDetails.runtime} category="Runtime: " ending=" minutes" />
                 </div>
