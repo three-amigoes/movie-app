@@ -56,15 +56,21 @@ img {
 }
 
 h1,
-h1 .titleH1 {
+h1 .titleSpan {
   text-align: center;
   color: #fbb502;
   font-family: myFirstFont;
   font-size: 3rem;
 }
 
-h1 .titleH1 {
+.headerTitle {
+  padding-bottom: 1.5rem;
+  font-size: 4rem;
+}
+
+h1 .titleSpan {
   color: #4584d9;
+  font-size: 4rem;
 }
 
 
@@ -82,8 +88,10 @@ h1 .titleH1 {
   padding: 0.5rem;
 }
 
+.search:focus-within,
 .search:focus{
   border: none;
+  outline: none;
 }
 
 .searchButton{
@@ -116,8 +124,6 @@ h1 .titleH1 {
     grid-template-areas: 
     "leftColumn rightColumn"; 
 }
-
-
 
 .leftColumn{
   grid-area: leftColumn;
@@ -230,13 +236,19 @@ img.poster{
   display: grid; 
   grid-auto-rows: 1fr; 
   grid-template-columns: 1fr 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr; 
   gap: 1rem;
 }
 
 li {
   border: 2px solid #4584d9;
   position: relative;
+}
+
+.gallery li:focus,
+.gallery li:hover {
+  scale: 1.06;
+  transition: all 0.55s;
 }
 
 h2 {
@@ -273,7 +285,7 @@ span {
   position: absolute;
   bottom: 0;
   width: 100%;  
-  height: 4vh;
+  height: 2rem;
   background-color: rgba(255,255,255,0.5);
   border: none;
   size: 4rem;

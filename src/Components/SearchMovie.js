@@ -10,6 +10,7 @@ const SearchMovie = (props) => {
     const {movieName} = props.match.params;
     const [searchResults, setSearchResults] = useState([]);
     const [loading, SetLoading] = useState(true)
+    const [searchExists, setSearchExists] = useState(false)
 
     const searchURL = 'https://api.themoviedb.org/3/search/movie/'; //Returns popular movie, doesn't take user query.
     const apiKey = '9709355fc5ce17fa911605a13712678d';
@@ -28,9 +29,10 @@ const SearchMovie = (props) => {
         .then( (rawData) => {
             return rawData.json();
         }).then( (jsonData) => {
-            console.log(jsonData);
+            jsonData.errors ? setSearchExists(false) : setSearchExists(true);
             setSearchResults(jsonData.results);
             SetLoading(false)
+
         })
 
     }, [movieName])
@@ -38,11 +40,12 @@ const SearchMovie = (props) => {
     return(
         loading ? <p> Loading </p> :
 
-        <>
-        {console.log(searchResults)}
+        searchExists === false ? <NoResults /> :
+        
+        <>  
             { 
-            
-            searchResults.length !== 0 ?
+
+            searchResults.length !== 0  ?
             
             <ul className="gallery wrapper">
                 {
@@ -69,10 +72,6 @@ const SearchMovie = (props) => {
                                         </>
                                     }
                                 </Link>
-
-
-                                {/* <Ternary input={movie.vote_average.toFixed(1)} category="Score: " ending="/10" /> */}
-
                             </li>
                         )
                     })

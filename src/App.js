@@ -29,12 +29,15 @@ export default App;
 // render={() => <SearchMovie searchQuery={searchQuery} /> }
 
 // 07/17: 
-// Style Search Bar
 // Clear Search bar after search
-// Add Randomizer if possible
-// Check final error handling
+// Style Search Bar
 // Final decisions on header layout
+// Add Randomizer if possible
+
+
+// Check final error handling
 // Prepare presentation
+// Suggestions for movies.
 
 // Post Ideas:
 // Create Multiple Lists (Carlie)
