@@ -2,6 +2,7 @@ import "../App.css"
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'; 
 import Ternary from "./Ternary";
+import Footer from "./Footer";
 
 const DiscoveryLanding = () => {
     const discoverURL = 'https://api.themoviedb.org/3/discover/movie/'; //Returns popular movie, doesn't take user query.
@@ -43,17 +44,12 @@ const DiscoveryLanding = () => {
                                     : null
                                 }
                             </Link>
-
-                            <div className="movieCardText">
-                                {/* <h2>{movie.title}</h2> */}
-                                {/* <Ternary input={movie.vote_average.toFixed(1)} ending="/10"/> */}
-                            </div>
-
                         </li>
                         )
                     })
                 }
             </ul>
+            <Footer />
         </div>
     )
 }

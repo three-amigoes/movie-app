@@ -26,16 +26,18 @@ const Header = () => {
     return(
         <header className="wrapper">
             <div className="topBar">
-                <img onClick={handleHomeButton} className="logo" src={logo} alt="Logo of NotBlockbusters Website" />
-                <form onSubmit={handleSearchQuery} action="search">
-                    <div className="searchBar">
-                        <label htmlFor="search"></label>
-                        <input type="text" name="search" id="search" className="search" placeholder="Search" />
-                        <button className="searchButton" type="submit">&#x1F50E;&#xFE0E;</button>
-                    </div>
-                </form>
-
-                <button className="listButton" onClick={handleFavoriteButton}> &#9733; Favorites </button>
+                <div className="topBarLeft">
+                    <img onClick={handleHomeButton} className="logo" src={logo} alt="Logo of NotBlockbusters Website" />
+                    <form onSubmit={handleSearchQuery} action="search">
+                        <div className="searchBar">
+                            <label htmlFor="search"></label>
+                            <input type="text" name="search" id="search" className="search" placeholder="Search" />
+                            <button className="searchButton" type="submit">&#x1F50E;&#xFE0E;</button>
+                        </div>
+                    </form>
+                </div>
+            
+                <button className="listButton" onClick={handleFavoriteButton}> &#9733; Favourites </button>
             </div>
 
 

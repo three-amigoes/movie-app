@@ -1,4 +1,5 @@
 import "./App";
+import "./App.css"
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './Components/Header';
 import DiscoveryLanding from './Components/DiscoveryLanding';
@@ -29,9 +30,6 @@ export default App;
 // render={() => <SearchMovie searchQuery={searchQuery} /> }
 
 // 07/17: 
-// Clear Search bar after search
-// Style Search Bar
-// Final decisions on header layout
 // Add Randomizer if possible
 
 
