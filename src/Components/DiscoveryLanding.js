@@ -19,14 +19,14 @@ const DiscoveryLanding = () => {
         return rawData.json();
         }).then( (jsonData) => {
         setDiscoveryResults(jsonData.results);
-        console.log(jsonData.results);
+        // console.log(jsonData.results);
         })        
     }, [])
 
 
     return(
         <div>
-            <h1> Welcome to <span className="titleH1"> NotBlockbuster</span> !</h1>
+            <h1 className="headerTitle"> Welcome to <span className="titleSpan"> NotBlockbuster</span> !</h1>
             <ul className="gallery wrapper">
                 {
                     discoveryResults.map( (movie) => {

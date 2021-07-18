@@ -8,6 +8,7 @@ const Header = () => {
     const handleSearchQuery = (event) => {
         event.preventDefault();      
         history.push(`/search/${event.target[0].value}`);
+        event.target[0].value = '';
     }
 
     // Changes endpoint to allow list to be displayed
@@ -29,7 +30,7 @@ const Header = () => {
                 <form onSubmit={handleSearchQuery} action="search">
                     <div className="searchBar">
                         <label htmlFor="search"></label>
-                        <input type="text" name="search" id="search" className="search" placeholder="search" />
+                        <input type="text" name="search" id="search" className="search" placeholder="Search" />
                         <button className="searchButton" type="submit">&#x1F50E;&#xFE0E;</button>
                     </div>
                 </form>
