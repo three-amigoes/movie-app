@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom";
+import logo from '../assets/logo.png'
 
 const Header = () => {
     let history = useHistory();
@@ -22,15 +23,24 @@ const Header = () => {
     }
 
     return(
-        <header>
-            <h1 onClick={handleHomeButton}>Movie App</h1>
-            <button onClick={handleFavoriteButton}> View List </button>
+        <header className="wrapper">
+            <div className="topBar">
+                <img onClick={handleHomeButton} className="logo" src={logo} alt="Logo of NotBlockbusters Website" />
+                <form onSubmit={handleSearchQuery} action="search">
+                    <div className="searchBar">
+                        <label htmlFor="search"></label>
+                        <input type="text" name="search" id="search" className="search" placeholder="search" />
+                        <button className="searchButton" type="submit">&#x1F50E;&#xFE0E;</button>
+                    </div>
+                </form>
+
+                <button className="listButton" onClick={handleFavoriteButton}> &#9733; Favorites </button>
+            </div>
+
+
             
-            <form onSubmit={handleSearchQuery} action="search">
-                <label htmlFor="search"></label>
-                <input type="text" name="search" id="search" placeholder="search" />
-                <button type="submit">Submit</button>
-            </form>
+            
+
         </header>
     )
 }

@@ -1,3 +1,5 @@
+import "../App.css"
+import poster from '../assets/poster.png'
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BackButton from "./BackButton";
@@ -41,8 +43,8 @@ const SearchMovie = (props) => {
             { 
             
             searchResults.length !== 0 ?
-
-            <ul>
+            
+            <ul className="gallery wrapper">
                 {
                     searchResults.map( (movie) => {
                         return(
@@ -56,15 +58,20 @@ const SearchMovie = (props) => {
                                                 alt={`Movie poster for ${movie.title}`} 
                                             />
                                         : 
-                                        <img 
-                                                src="https://placekeanu.com/500/350" 
+                                        <>
+                                            <img 
+                                                src={poster} 
                                                 alt={`Movie poster for ${movie.title}`} 
-                                        />
+                                            />
+                                            <div className="noPosterTitle">
+                                                <h2>{movie.title}</h2>
+                                            </div>
+                                        </>
                                     }
                                 </Link>
 
-                                <h2>{movie.title}</h2>
-                                <Ternary input={movie.vote_average.toFixed(1)} category="Score: " ending="/10" />
+
+                                {/* <Ternary input={movie.vote_average.toFixed(1)} category="Score: " ending="/10" /> */}
 
                             </li>
                         )
@@ -76,7 +83,9 @@ const SearchMovie = (props) => {
 
             }
             
-            <BackButton />
+            <div className="searchBack wrapper">
+                <BackButton />
+            </div>  
         </>
     )
 }

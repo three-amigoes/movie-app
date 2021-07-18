@@ -9,7 +9,7 @@ const BackButton = () => {
 
 
     return(
-        <button onClick={goToPreviousPath}> Back </button>
+        <button className="backButton" onClick={goToPreviousPath}> 	&#11207; Back </button>
     )
 }
 

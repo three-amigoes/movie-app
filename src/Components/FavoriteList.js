@@ -1,3 +1,4 @@
+import "../App.css"
 import firebase from "../firebase";
 import { useState, useEffect } from 'react'
 import BackButton from "./BackButton";
@@ -31,13 +32,13 @@ const FavoriteList = () => {
     return (
         <>
         {console.log(fireBaseList)}
-            <ul>
+            <ul className="gallery wrapper">
                 {
                     // Displaying Firebase items on the page.
                     fireBaseList.map( (item) => {
                         return(
                             <li key={item.key}>
-                                {item.fireBaseInfo.title}
+                                {/* {item.fireBaseInfo.title} */}
 
                                 <Link to={`/movie/${item.fireBaseInfo.id}`}>
                                     {
@@ -54,14 +55,19 @@ const FavoriteList = () => {
 
 
                                 {/* Looking for key and then removing object */}
-                                <button onClick={() => {removeFromList(item.key)}}>Remove</button>
+                                {/* <button className="removeButton" onClick={() => {removeFromList(item.key)}}>Close</button> */}
+
+                                    <button className="removeButton" onClick={() => {removeFromList(item.key)}}> <span> &times; </span> </button>
+
                             </li>
                         )
                     })
                 }
             </ul>
 
-            <BackButton />
+            <div className="searchBack wrapper">
+                <BackButton />
+            </div>  
         </>
     )
 }

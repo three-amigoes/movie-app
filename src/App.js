@@ -29,15 +29,14 @@ export default App;
 // render={() => <SearchMovie searchQuery={searchQuery} /> }
 
 // 07/17: 
-// Start styling page (grids, layout, etc)
-// Randomizer Inside List (WITH SLIDER!!!!!!)
-// Add no poster available OR Filter by release data/poster/genres/vote
-
-// 07/18: 
-    // Aim to finish styling & make responsive
-
+// Style Search Bar
+// Clear Search bar after search
+// Add Randomizer if possible
+// Check final error handling
+// Final decisions on header layout
+// Prepare presentation
 
 // Post Ideas:
 // Create Multiple Lists (Carlie)
 // Authentication
-// 
+// Access to multiple pages (filter out YouTube videos)
