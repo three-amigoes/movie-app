@@ -12,7 +12,10 @@ const FirebaseInteraction  = ({movieDetails}) => {
         dbRef.push({
             title: movieDetails.title,
             poster: `https://image.tmdb.org/t/p/original${movieDetails.poster_path}`,
-            id: movieDetails.id
+            id: movieDetails.id,
+            runtime: movieDetails.runtime,
+            genres: movieDetails.genres,
+            vote_average: movieDetails.vote_average
         });
     }
 
@@ -37,12 +40,11 @@ const FirebaseInteraction  = ({movieDetails}) => {
             {
                 found  
                 ? <p className="alreadyAdded">  Favourited! </p> 
-                : <button class="buttonFB" onClick={sendToFirebase}> &#9733; Add to Favourite </button>
+                : <button className="buttonFB" onClick={sendToFirebase}> &#9733; Add to Favourite </button>
             }
             
         </>
     )
 }
-// &#9733;
 
 export default FirebaseInteraction;  

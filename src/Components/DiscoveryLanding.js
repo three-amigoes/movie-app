@@ -19,7 +19,6 @@ const DiscoveryLanding = () => {
         return rawData.json();
         }).then( (jsonData) => {
         setDiscoveryResults(jsonData.results);
-        // console.log(jsonData.results);
         })        
     }, [])
 
