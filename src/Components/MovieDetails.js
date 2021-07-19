@@ -3,6 +3,7 @@ import FirebaseInteraction from "./FirebaseInteraction";
 import ReactPlayer from 'react-player/youtube'
 import BackButton from "./BackButton";
 import Ternary from "./Ternary";
+import poster from "../assets/poster.png"
 
 const MovieDetails = (props) => {
     const {movieID} = props.match.params;
@@ -66,8 +67,8 @@ const MovieDetails = (props) => {
                             alt={`Movie poster for ${movieDetails.title}`} 
                         />
                     : <img 
-                            src="https://placekeanu.com/500/350"
-                            alt={`Movie poster for ${movieDetails.title}`} 
+                            src={poster}
+                            alt={`No poster available for ${movieDetails.title}`} 
                         />
                 }
 
@@ -87,7 +88,7 @@ const MovieDetails = (props) => {
                         {movieDetails.imdb_id 
                         ? <h1 className="title"><a className="imdb" href={`https://www.imdb.com/title/${movieDetails.imdb_id}`} target="_blank" rel="noopener noreferrer">{movieDetails.title}</a></h1>
                         : <h1 className="title">{movieDetails.title}</h1>}
-                    <Ternary className="runtime" input={movieDetails.runtime} category="Runtime: " ending=" minutes" />
+                    <Ternary className="runtime" input={movieDetails.runtime} ending=" minutes" />
                 </div>
 
                 <div className="releaseRow">
