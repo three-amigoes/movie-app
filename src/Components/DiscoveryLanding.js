@@ -24,7 +24,7 @@ const DiscoveryLanding = () => {
 
 
     return(
-        <div>
+        <div className="wrapper">
             <h1 className="headerTitle"> Welcome to <span className="titleSpan"> NotBlockbuster</span> !</h1>
             <ul className="gallery wrapper">
                 {
