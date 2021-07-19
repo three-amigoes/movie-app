@@ -37,7 +37,7 @@ const SearchMovie = (props) => {
     }, [movieName])
 
     return(
-        loading ? <p> Loading </p> :
+        loading ? <p className="loading wrapper"> Loading </p> :
 
         searchExists === false ? <NoResults /> :
         
