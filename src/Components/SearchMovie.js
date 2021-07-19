@@ -3,7 +3,6 @@ import poster from '../assets/poster.png'
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BackButton from "./BackButton";
-import Ternary from "./Ternary";
 import NoResults from "./NoResults";
 
 const SearchMovie = (props) => {

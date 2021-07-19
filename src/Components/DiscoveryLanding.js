@@ -1,7 +1,6 @@
 import "../App.css"
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'; 
-import Ternary from "./Ternary";
 import Footer from "./Footer";
 
 const DiscoveryLanding = () => {
