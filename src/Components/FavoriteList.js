@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const FavoriteList = () => {
     const [fireBaseList, setFireBaseList] = useState([]);
     const [userRuntime, setUserRuntime] = useState(50);
-    const [userGenre, setUserGenre] = useState(0)
+    const [userGenre, setUserGenre] = useState('')
     const [copyOfFB, setCopyOfFB] = useState([]);
 
 
@@ -45,14 +45,16 @@ const FavoriteList = () => {
         const fbGenres = copyOfFB.filter( (movieObject) => {
             let approvedGenre = false;
             for (let index in movieObject.fireBaseInfo.genres){
-                if(movieObject.fireBaseInfo.genres[index].id == userGenre){
+                if(movieObject.fireBaseInfo.genres[index].id.toString() === userGenre){
                     approvedGenre = true;
-                } else if(userGenre == 0){
+                } else if(userGenre === ''){
                     approvedGenre = true;
                 }
             }
             if(approvedGenre === true){
                 return movieObject
+            } else {
+                return null
             }
         })
 
@@ -71,14 +73,14 @@ const FavoriteList = () => {
                 
                 <h2>Need help narrowing down your list? We can help!</h2>
                 <div className="filterSlider">
-                    <label class="sr-only" htmlFor="minutes">Minutes</label>
+                    <label className="sr-only" htmlFor="minutes">Minutes</label>
                     <p> I've got {userRuntime} Minutes </p>
                     <input type="range" name="minutes" id="minutes" min="30" max="180" step="5" onChange={(event) => setUserRuntime(event.target.value)} />
                 </div>
 
-                <label class="sr-only" htmlFor="filterGenre">Genres</label>
+                <label className="sr-only" htmlFor="filterGenre">Genres</label>
                 <p>I feel like watching </p>
-                <select onChange={(event) => setUserGenre(event.target.value)} name="genres" id="filterGenre" class="filterGenre">
+                <select onChange={(event) => setUserGenre(event.target.value)} name="genres" id="filterGenre" className="filterGenre">
                     <option value="">All</option>
                     <option value="28">Action</option>
                     <option value="12">Adventure</option>
@@ -100,7 +102,7 @@ const FavoriteList = () => {
                     <option value="10752">War</option>
                     <option value="37">Western</option>
                 </select>
-                <button class="filterButton" type="submit">Search</button>
+                <button className="filterButton" type="submit">Search</button>
             </form>
 
             <ul className="gallery wrapper">
