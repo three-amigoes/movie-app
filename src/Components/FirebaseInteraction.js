@@ -28,7 +28,7 @@ const FirebaseInteraction  = ({movieDetails}) => {
             setLoading(false)
         } )
         
-    }, [])
+    }, [movieDetails.id, dbRef])
 
 
     return (
@@ -36,12 +36,13 @@ const FirebaseInteraction  = ({movieDetails}) => {
         <>
             {
                 found  
-                ? <p className="alreadyAdded"> &#9733; Favourited! </p> 
-                : <button class="buttonFB" onClick={sendToFirebase}> &#9733; Add to List </button>
+                ? <p className="alreadyAdded">  Favourited! </p> 
+                : <button class="buttonFB" onClick={sendToFirebase}> &#9733; Add to Favourite </button>
             }
             
         </>
     )
 }
+// &#9733;
 
 export default FirebaseInteraction;  
