@@ -55,7 +55,7 @@ const MovieDetails = (props) => {
 
 
     return(
-        loading ? <p> Loading </p> :
+        loading ? <p className="wrapper loading"> Loading </p> :
         <div className="movieGrid wrapper">
             <div className="leftColumn">
                 {
@@ -117,34 +117,6 @@ const MovieDetails = (props) => {
                 }
 
             </div>
-
-
-            
-            {/* <Ternary input={movieDetails.original_language.toUpperCase()} category="Language: " /> */}
-            {/* <Ternary input={movieDetails.budget} category="Budget: $" /> */}
-            {/* <Ternary input={movieDetails.revenue} category="Revenue: $" /> */}
-            
-
-
-
-
-
-
-
-
-
-
-            {/* {
-                movieDetails.backdrop_path ?
-                    <img 
-                        src={`https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`} 
-                        alt={`Backdrop path for ${movieDetails.title}`} 
-                    />
-                : null
-            } */}
-
-           
-
         </div> 
     ) 
 }
