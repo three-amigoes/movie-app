@@ -25,7 +25,6 @@ const MovieDetails = (props) => {
         .then( (rawData) => {
             return rawData.json();
         }).then( (jsonData) => {
-            // console.log(jsonData)
             setMovieDetails(jsonData)
 
             // Finding Director Object within Crew Array
