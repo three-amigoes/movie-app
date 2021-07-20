@@ -1,7 +1,8 @@
 import "../App.css"
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'; 
-import poster from '../assets/poster.png'
+import poster from '../assets/poster.png';
+import Footer from '../Components/Footer'
 
 const DiscoveryLanding = () => {
     const discoverURL = 'https://api.themoviedb.org/3/discover/movie/'; //Returns popular movie, doesn't take user query.
@@ -51,6 +52,7 @@ const DiscoveryLanding = () => {
                     })
                 }
             </ul>
+            <Footer />
         </div>
     )
 }
