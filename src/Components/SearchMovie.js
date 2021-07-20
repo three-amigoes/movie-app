@@ -17,12 +17,12 @@ const SearchMovie = (props) => {
 
     useEffect( () => {
         SetLoading(true)
-        const url = new URL(searchURL);
+        const url = new URL('https://proxy.hackeryou.com');
         url.search = new URLSearchParams({
-            api_key: apiKey,
-            query: movieName,
-            adult: false,
-            // page: 1
+            reqUrl: searchURL,
+            'params[api_key]': apiKey,
+            'params[query]': movieName,
+            'params[adult]': false,
         })
         fetch(url)
         .then( (rawData) => {
@@ -31,9 +31,7 @@ const SearchMovie = (props) => {
             jsonData.errors ? setSearchExists(false) : setSearchExists(true);
             setSearchResults(jsonData.results);
             SetLoading(false)
-
         })
-
     }, [movieName])
 
     return(
