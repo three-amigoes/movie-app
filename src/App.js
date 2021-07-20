@@ -31,11 +31,12 @@ export default App;
 // Future Features to Add:
 
 // Smol
-// Favorites button in hover should be a link
-// Footer on all the pages
-// Hover on our names
-// clicking favorites button (top right) toggles between going back
 // remove from favorites button after adding to favorites
+// Add reference to TMDB in footer
+// Favorites button in hover should be a link
+// Hover effect on anything clickable
+// clicking favorites button (top right) toggles between going back
+
 
 // Not smol
 // Related movies
@@ -43,3 +44,4 @@ export default App;
 // Create Multiple Lists (Carlie)
 // Authentication
 // Access to multiple pages (filter out YouTube videos)
+// Access TV shows
