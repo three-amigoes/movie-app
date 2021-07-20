@@ -26,9 +26,9 @@ const DiscoveryLanding = () => {
 
 
     return(
-        <div className="wrapper">
+        <main className="wrapper">
             <h1 className="headerTitle"> Welcome to <span className="titleSpan"> NotBlockbuster</span> !</h1>
-            <ul className="gallery wrapper">
+            <ul className="gallery">
                 {
                     discoveryResults.map( (movie) => {
                     return(
@@ -53,7 +53,7 @@ const DiscoveryLanding = () => {
                 }
             </ul>
             <Footer />
-        </div>
+        </main>
     )
 }
 

@@ -40,7 +40,7 @@ const FirebaseInteraction  = ({movieDetails}) => {
             {
                 found  
                 ? <p className="alreadyAdded"><span class="iconify" data-icon="ant-design:star-filled" data-inline="false"></span> Favourited!</p> 
-                : <button className="buttonFB" onClick={sendToFirebase}><span class="iconify" data-icon="ant-design:star-filled" data-inline="false"></span> Add to Favourite </button>
+                : <button className="buttonFB" onClick={sendToFirebase}><span class="iconify" data-icon="ant-design:star-filled" data-inline="false"></span> Favourite </button>
             }
             
         </>

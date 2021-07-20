@@ -28,15 +28,18 @@ export default App;
 // Want to pass parameter into component, need to use render={} instead of component={}
 // render={() => <SearchMovie searchQuery={searchQuery} /> }
 
-// 07/17: 
-// Add Randomizer if possible
+// Future Features to Add:
 
+// Smol
+// Favorites button in hover should be a link
+// Footer on all the pages
+// Hover on our names
+// clicking favorites button (top right) toggles between going back
+// remove from favorites button after adding to favorites
 
-// Check final error handling
-// Prepare presentation
-// Suggestions for movies.
-
-// Post Ideas:
+// Not smol
+// Related movies
+// Next page button
 // Create Multiple Lists (Carlie)
 // Authentication
 // Access to multiple pages (filter out YouTube videos)
