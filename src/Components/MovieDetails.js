@@ -84,36 +84,35 @@ const MovieDetails = (props) => {
 
 
             <div className="rightColumn">     
-                <div className="titleRow">
-                        {movieDetails.imdb_id 
-                        ? <h1 className="title"><a className="imdb" href={`https://www.imdb.com/title/${movieDetails.imdb_id}`} target="_blank" rel="noopener noreferrer">{movieDetails.title}</a></h1>
-                        : <h1 className="title">{movieDetails.title}</h1>}
-                    <Ternary className="runtime" input={movieDetails.runtime} ending=" minutes" />
-                </div>
+                {movieDetails.imdb_id 
+                ? <h1 className="title"><a className="imdb" href={`https://www.imdb.com/title/${movieDetails.imdb_id}`} target="_blank" rel="noopener noreferrer">{movieDetails.title}</a></h1>
+                : <h1 className="title">{movieDetails.title}</h1>}
 
-                <div className="releaseRow">
-                    <Ternary className="tagline" input={movieDetails.tagline} />
-                    <Ternary className="releaseDate" input={movieDetails.release_date} category="Released: " />
-                </div>
+                
+                <Ternary className="runtime" input={movieDetails.runtime} ending=" minutes" category="Runtime: "/>   
+
+                <Ternary className="tagline" input={movieDetails.tagline} />
 
                 <Ternary className="overview" input={movieDetails.overview} />
+
+                <Ternary className="releaseDate" input={movieDetails.release_date} category="Released: " />
 
                 <Ternary className="director" input={director.name} category="Director: " />
 
                 {
-                    movieDetails.credits.cast     
+                    movieDetails.credits.cast.length  
                     ? <p className="cast">Cast: {cast.join(", ")}</p>         
                     : null
                 }
 
                 {
-                    movieDetails.genres 
+                    movieDetails.genres.length
                     ? <p className="genres">Genres: {genres.join(", ")}</p>
                     : null
                 }
 
                 { movieDetails.videos.results[0] 
-                    ? <ReactPlayer className="youTube" width="100%" height="57%" url={`https://www.youtube.com/watch?v=${movieDetails.videos.results[0].key}`} />
+                    ? <ReactPlayer className="youTube" controls="true" width="100%" height="100%" url={`https://www.youtube.com/watch?v=${movieDetails.videos.results[0].key}`} />
                     : null
                 }
 

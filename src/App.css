@@ -159,7 +159,9 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 50vh;
+  font-family: myFirstFont;
+  color: #fbb502;
 }
 
 
@@ -186,7 +188,7 @@ img.poster{
 .leftColumnButtons {
   display: flex;
   justify-content: space-between;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
 }
 
 .backButton,
@@ -231,53 +233,39 @@ img.poster{
   grid-area: rightColumn;
 }
 
-.titleRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: last baseline;
-  border-bottom: 2px solid #fbb502;
-}
-
 .title{
   text-align: left;
-  width: 80%;
+  border-bottom: 2px solid #fbb502;
 }
 
 .imdb {
   color: #fbb502;
 }
 
-.runtime,
-.tagline,
-.releaseDate {
-  font-size: 0.8rem;
-}
-
 .releaseRow{
   display: flex;
   justify-content: space-between;
-}
-
-.tagline,
-.releaseDate {
+  font-size: 0.8rem;
   padding-top: 0.5rem;
 }
 
-.runtime, .tagline, .releaseDate {
-  min-width: 87px;
-}
-
-
 .overview{
-  padding: 1.25rem 0;
+  padding: 1.1rem 0;
 }
 
+.runtime,
+.tagline,
+.releaseDate,
 .director,
 .cast,
 .genres {
   display: flex;
   font-size: 0.85rem;
   padding: 0.25rem 0;
+}
+
+.runtime {
+  padding-top: 0.5rem;
 }
 
 .cast li,
@@ -362,6 +350,7 @@ span {
 
 .filterForm h2 {
   font-size: 1.5rem;
+  padding: 0rem 1rem;
 }
 
 .filterForm p {
@@ -400,9 +389,26 @@ footer p {
   font-size: 1.5rem;
 }
 
-
 footer a {
   font-size: 2.25rem;
+}
+
+/* styling with iconify icons */
+
+.buttonFB,
+.listButton,
+.backButton,
+.alreadyAdded {
+  display: flex;
+  justify-content: center;
+}
+
+.alreadyAdded {
+  align-items: start;
+}
+
+.iconify {
+  margin-right: .3rem;
 }
 
 
@@ -472,7 +478,7 @@ footer a {
   }
 
   footer a {
-    font-size: 1.75rem;
+    font-size: 1.69rem;
   }
 
   footer p {
@@ -481,5 +487,126 @@ footer a {
 
   .loading {
     font-size: 3rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .topBar {
+    flex-direction: column;
+    padding: 1.25rem 0 1rem;
+  }
+
+  .topBarLeft {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .listButton,
+  .searchBar {
+    width: 100%;
+  }
+
+  .listButton {
+   margin-top: 1.2rem;
+  }
+
+  .logo {
+    width: 8rem;
+  }
+
+  .listButton {
+    text-align: center;
+  }
+
+  .search {
+    height: auto;
+    padding: .75rem;
+  }
+
+  .headerTitle, h1 .titleSpan {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 699px) {
+  .movieGrid {
+    display: block;
+  }
+
+  .backButton, .buttonFB {
+    padding: 0.5rem 0;
+    letter-spacing: 0.2rem;
+  }
+  .buttonFB {
+    font-size: 1.25rem;
+  }
+
+  .rightColumn {
+    padding-top: 1rem;
+  }
+
+  .youTube {
+    height: 22rem !important;
+    margin-top: .5rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .headerTitle {
+    padding: 0rem .7rem 2rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .searchBack .backButton {
+    margin-top: 2.5rem;
+  }
+
+  footer p {
+    font-size: 1.25rem;
+  }
+
+  footer a {
+    font-size: 1.5rem;
+  }
+
+  .topBarLeft {
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+  
+  .topBar {
+    width: 100%;
+  }
+
+  .logo {
+    width: 100%;
+    max-width: 11.5rem;
+    margin-bottom: 1.5rem;
+    padding-right: 0;
+  }
+  
+  form {
+    width: 100%;
+  }
+
+  /* .search {
+    padding: .75rem;
+  } */
+
+}
+
+@media (max-width: 350px) {
+  .headerTitle {
+    padding: 0rem 0rem 2rem;
   }
 }

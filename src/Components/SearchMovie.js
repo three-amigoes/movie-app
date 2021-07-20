@@ -60,8 +60,8 @@ const SearchMovie = (props) => {
                                         : 
                                         <>
                                             <img 
-                                                src={poster} 
-                                                alt={`Movie poster for ${movie.title}`} 
+                                                src={poster}
+                                                alt={`No poster available for ${movie.title}`}
                                             />
                                             <div className="noPosterTitle">
                                                 <h2>{movie.title}</h2>
