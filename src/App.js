@@ -1,4 +1,3 @@
-import "./App";
 import "./App.css"
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './Components/Header';
@@ -6,6 +5,7 @@ import DiscoveryLanding from './Components/DiscoveryLanding';
 import MovieDetails from './Components/MovieDetails';
 import SearchMovie from './Components/SearchMovie';
 import FavoriteList from './Components/FavoriteList';
+import Footer from "./Components/Footer";
 
 function App() {
 
@@ -19,6 +19,7 @@ function App() {
         <Route exact path='/movie/:movieID' component={MovieDetails}></Route>
         <Route exact path='/search/:movieName' component={SearchMovie}></Route>
         <Route exact path='/favorites' component={FavoriteList}></Route>
+        <Footer />
       </div>
     </Router>
   );

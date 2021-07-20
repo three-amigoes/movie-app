@@ -32,12 +32,12 @@ const Header = () => {
                         <div className="searchBar">
                             <label htmlFor="search"></label>
                             <input type="text" name="search" id="search" className="search" placeholder="Search" />
-                            <button className="searchButton" type="submit">&#x1F50E;&#xFE0E;</button>
+                            <button className="searchButton" type="submit"><span class="iconify" data-icon="gridicons:search" data-inline="false"></span></button>
                         </div>
                     </form>
                 </div>
             
-                <button className="listButton" onClick={handleFavoriteButton}> &#9733; Favourites </button>
+                <button className="listButton" onClick={handleFavoriteButton}><span class="iconify" data-icon="ant-design:star-filled" data-inline="false"></span> Favourites </button>
             </div>
 
 
