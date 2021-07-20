@@ -12,7 +12,7 @@ const SearchMovie = (props) => {
     const [searchExists, setSearchExists] = useState(false)
 
     const searchURL = 'https://api.themoviedb.org/3/search/movie/'; //Returns popular movie, doesn't take user query.
-    const apiKey = '9709355fc5ce17fa911605a13712678d';
+    const apiKey = 'a0e32a4a0c009553ac6020779811cc03';
 
 
     useEffect( () => {
