@@ -309,6 +309,7 @@ h2 {
   font-size: 1rem;
   text-align: center;
   color: #ffffff;
+  background: rgba(0, 0 ,0 ,0.75);
 }
 
 .noPosterTitle{
@@ -355,6 +356,7 @@ span {
 .filterForm h2 {
   font-size: 1.5rem;
   padding: 0rem 1rem;
+  background-color: transparent;
 }
 
 .filterForm p {
@@ -510,7 +512,6 @@ footer a {
     "youTube youTube"; 
 }
 
-
   .youTube {
     display: block;
     grid-area: youTube;
@@ -544,6 +545,7 @@ footer a {
 
   .listButton {
     margin-top: 1.2rem;
+    justify-content: center;
   }
 
   .logo {
@@ -589,7 +591,7 @@ footer a {
 
 @media (max-width: 530px) {
   .headerTitle {
-    padding: 0rem .7rem 2rem;
+    padding: 0rem 1.2rem 2rem;
   }
 
   .gallery {
@@ -630,14 +632,9 @@ footer a {
   form {
     width: 100%;
   }
-
-  /* .search {
-    padding: .75rem;
-  } */
-
 }
 
-@media (max-width: 350px) {
+@media (max-width: 360px) {
   .headerTitle {
     padding: 0rem 0rem 2rem;
   }

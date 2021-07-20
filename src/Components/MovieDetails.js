@@ -66,7 +66,8 @@ const MovieDetails = (props) => {
                             src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`} 
                             alt={`Movie poster for ${movieDetails.title}`} 
                         />
-                    : <img 
+                        : <img 
+                            className="poster"
                             src={poster}
                             alt={`No poster available for ${movieDetails.title}`} 
                         />
