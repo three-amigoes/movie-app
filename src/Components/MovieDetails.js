@@ -112,11 +112,17 @@ const MovieDetails = (props) => {
                 }
 
                 { movieDetails.videos.results[0] 
-                    ? <ReactPlayer className="youTube" controls="true" width="100%" height="100%" url={`https://www.youtube.com/watch?v=${movieDetails.videos.results[0].key}`} />
+                    ? <ReactPlayer className="youTube2" controls="true" width="100%" height="100%" url={`https://www.youtube.com/watch?v=${movieDetails.videos.results[0].key}`} />
                     : null
                 }
 
+
             </div>
+            
+                { movieDetails.videos.results[0] 
+                    ? <ReactPlayer className="youTube" controls="true" width="100%" height="100%" url={`https://www.youtube.com/watch?v=${movieDetails.videos.results[0].key}`} />
+                    : null
+                }
         </div> 
     ) 
 }

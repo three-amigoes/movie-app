@@ -173,7 +173,8 @@ form {
   grid-template-rows: 1fr; 
   column-gap: 1rem;
     grid-template-areas: 
-    "leftColumn rightColumn"; 
+    "leftColumn rightColumn"
+    "leftColumn youTube"; 
 }
 
 .leftColumn{
@@ -205,7 +206,7 @@ img.poster{
 }
 
 .alreadyAdded{
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   width: calc((100% /2) - 2.5%);
   display: flex;
   align-items: center;
@@ -217,7 +218,7 @@ img.poster{
 }
 
 .buttonFB{
-  font-size: 1.05rem;
+  font-size: 1.2rem;
 }
 
 .backButton{
@@ -273,12 +274,15 @@ img.poster{
   border: none
 }
 
-.youTube {
-  margin-top: 1rem;
+.youTube{
+  display: none;
 }
 
-
-
+.youTube2 {
+  margin-top: 1rem;
+  height: 50% !important;
+  grid-area: youTube;
+}
 
 
 /* Used Across Multiple Components to Display Movie Posters */
@@ -401,10 +405,17 @@ footer a {
 .alreadyAdded {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.listButton {
+  justify-content: right;
+  align-items: center;
 }
 
 .alreadyAdded {
   align-items: start;
+  align-self: center;
 }
 
 .iconify {
@@ -490,6 +501,27 @@ footer a {
   }
 }
 
+
+@media (max-width: 1000px) { 
+  .movieGrid{
+    grid-template-rows: 1fr 1fr; 
+    grid-template-areas: 
+    "leftColumn rightColumn"
+    "youTube youTube"; 
+}
+
+
+  .youTube {
+    display: block;
+    grid-area: youTube;
+    height: 100% !important; 
+  }
+
+  .youTube2 {
+    display: none;
+  }
+}
+
 @media (max-width: 750px) {
   .gallery {
     grid-template-columns: 1fr 1fr;
@@ -511,7 +543,7 @@ footer a {
   }
 
   .listButton {
-   margin-top: 1.2rem;
+    margin-top: 1.2rem;
   }
 
   .logo {
@@ -532,7 +564,7 @@ footer a {
   }
 }
 
-@media (max-width: 699px) {
+@media (max-width: 700px) {
   .movieGrid {
     display: block;
   }
