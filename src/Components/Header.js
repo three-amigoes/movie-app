@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import logo from '../assets/logo.png'
 
 const Header = () => {
@@ -12,10 +12,10 @@ const Header = () => {
     }
 
     // Changes endpoint to allow list to be displayed
-    const handleFavoriteButton = (event) => {
-        event.preventDefault();
-        history.push(`/favorites`);
-    }
+    // const handleFavoriteButton = (event) => {
+    //     event.preventDefault();
+    //     history.push(`/favorites`);
+    // }
 
     // Changes endpoint to allow list to be displayed
     const handleHomeButton = (event) => {
@@ -23,6 +23,11 @@ const Header = () => {
         history.push(`/`);
     }
 
+    const goToPreviousPath = () => {
+        history.goBack();
+    };
+
+    console.log(history.location.pathname)
     return(
         <header className="wrapper">
             <div className="topBar">
@@ -32,12 +37,17 @@ const Header = () => {
                         <div className="searchBar">
                             <label htmlFor="search"></label>
                             <input type="text" name="search" id="search" className="search" placeholder="Search" />
-                            <button className="searchButton" type="submit"><span class="iconify" data-icon="gridicons:search" data-inline="false"></span></button>
+                            <button className="searchButton" type="submit"><span className="iconify" data-icon="gridicons:search" data-inline="false"></span></button>
                         </div>
                     </form>
                 </div>
-            
-                <button className="listButton" onClick={handleFavoriteButton}><span class="iconify" data-icon="ant-design:star-filled" data-inline="false"></span> Favourites </button>
+                {
+                    history.location.pathname === '/favorites' 
+                    ? 
+                    <button onClick={goToPreviousPath} className="listButton"> Back </button>
+                    :
+                    <Link to='/favorites' className="listButton"> Favourites </Link>
+                }
             </div>
 
 

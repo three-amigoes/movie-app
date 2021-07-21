@@ -53,9 +53,8 @@ const FirebaseInteraction  = ({movieDetails}) => {
             {
                 found  
                 ? 
-                <button className="buttonFB" onClick={() => removeFromList(keyFB)}><span class="iconify" data-icon="ant-design:star-filled" data-inline="false"></span> Remove </button>
-                // <p className="alreadyAdded"><span class="iconify" data-icon="ant-design:star-filled" data-inline="false"></span> Favourited!</p> 
-                : <button className="buttonFB" onClick={(sendToFirebase)}><span class="iconify" data-icon="ant-design:star-filled" data-inline="false"></span> Favourite </button>
+                <button className="buttonFB" onClick={() => removeFromList(keyFB)}> Remove </button>
+                : <button className="buttonFB" onClick={(sendToFirebase)}> Favourite </button>
             }
             
         </>
