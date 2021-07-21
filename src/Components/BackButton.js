@@ -7,7 +7,6 @@ const BackButton = () => {
         history.goBack();
     };
 
-
     return(
         <button className="backButton" onClick={goToPreviousPath}> Back</button>
     )

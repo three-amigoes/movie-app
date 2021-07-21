@@ -86,7 +86,6 @@ const MovieDetails = (props) => {
             </div>
 
 
-
             <div className="rightColumn">     
                 {movieDetails.imdb_id 
                 ? <h1 className="title"><a className="imdb" href={`https://www.imdb.com/title/${movieDetails.imdb_id}`} target="_blank" rel="noopener noreferrer">{movieDetails.title}</a></h1>
