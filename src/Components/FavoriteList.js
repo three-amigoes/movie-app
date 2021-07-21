@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react'
 import BackButton from "./BackButton";
 import { Link } from "react-router-dom";
 
-const FavoriteList = () => {
+const FavoriteList = (props) => {
+    props.setter(true);
+
     const [fireBaseList, setFireBaseList] = useState([]);
     const [userRuntime, setUserRuntime] = useState(50);
     const [userGenre, setUserGenre] = useState('')
     const [copyOfFB, setCopyOfFB] = useState([]);
-
 
     // Sending items into Firebase. 
     // Returns array of object with fireBaseInfo & key

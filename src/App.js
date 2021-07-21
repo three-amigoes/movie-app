@@ -5,23 +5,34 @@ import DiscoveryLanding from './Components/DiscoveryLanding';
 import MovieDetails from './Components/MovieDetails';
 import SearchMovie from './Components/SearchMovie';
 import FavoriteList from './Components/FavoriteList';
+import {useState} from 'react'
 
 function App() {
 
+  const [onFavourite, setOnFavourite] = useState(false);
+
+  const pageSetter = (onFav) => {
+    setOnFavourite(onFav);
+  }
 
   return (
     <Router>
       <div className="App">
-        <Header /> 
+        <Header onFavourite={onFavourite} /> 
 
-        <Route exact path='/' component={DiscoveryLanding}></Route>
-        <Route exact path='/movie/:movieID' component={MovieDetails}></Route>
-        <Route exact path='/search/:movieName' component={SearchMovie}></Route>
-        <Route exact path='/favorites' component={FavoriteList}></Route>
+        <Route exact path='/' render={() => <DiscoveryLanding setter={pageSetter}/>}/>
+        <Route exact path='/movie/:movieID' render={(matchProps) => <MovieDetails setter={pageSetter} pathway={matchProps}/>}/>
+        <Route exact path='/search/:movieName' render={(matchProps) => <SearchMovie setter={pageSetter} pathway={matchProps}/>}/>
+        <Route exact path='/favorites' render={() => <FavoriteList setter={pageSetter}/>}/>
       </div>
     </Router>
   );
 }
+{/* <Route exact path='/' component={DiscoveryLanding}></Route>
+        <Route exact path='/movie/:movieID' component={MovieDetails}></Route>
+        <Route exact path='/search/:movieName' component={SearchMovie}></Route>
+        <Route exact path='/favorites' component={FavoriteList}></Route> */}
+
 
 export default App;
 // Anything after ":" is technically a prop, which we have access to on SearchMovies.js

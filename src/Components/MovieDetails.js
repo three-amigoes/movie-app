@@ -6,7 +6,10 @@ import Ternary from "./Ternary";
 import poster from "../assets/poster.png"
 
 const MovieDetails = (props) => {
-    const {movieID} = props.match.params;
+    
+    props.setter(false);
+
+    const {movieID} = props.pathway.match.params;
     const [movieDetails, setMovieDetails] = useState([]);
     const [loading, setLoading] = useState(true) 
     const [director, setDirector] = useState('')

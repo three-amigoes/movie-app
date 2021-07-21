@@ -6,7 +6,9 @@ import BackButton from "./BackButton";
 import NoResults from "./NoResults";
 
 const SearchMovie = (props) => {
-    const {movieName} = props.match.params;
+    props.setter(false);
+
+    const {movieName} = props.pathway.match.params;
     const [searchResults, setSearchResults] = useState([]);
     const [loading, SetLoading] = useState(true)
     const [searchExists, setSearchExists] = useState(false)
@@ -75,7 +77,7 @@ const SearchMovie = (props) => {
                 }
             </ul>
 
-            : <NoResults /> 
+            : <NoResults props={props} /> 
 
             }
             
