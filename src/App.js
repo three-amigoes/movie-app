@@ -28,28 +28,16 @@ function App() {
     </Router>
   );
 }
-{/* <Route exact path='/' component={DiscoveryLanding}></Route>
-        <Route exact path='/movie/:movieID' component={MovieDetails}></Route>
-        <Route exact path='/search/:movieName' component={SearchMovie}></Route>
-        <Route exact path='/favorites' component={FavoriteList}></Route> */}
-
 
 export default App;
 // Anything after ":" is technically a prop, which we have access to on SearchMovies.js
 // Want to pass parameter into component, need to use render={} instead of component={}
 // render={() => <SearchMovie searchQuery={searchQuery} /> }
 
-// Future Features to Add:
+// Future Features to Add
 
-// Smol
-// remove from favorites button after adding to favorites
-// get rid of icons D=
-// Add reference to TMDB in footer
-
-// clicking favorites button (top right) toggles between going back
-// Favorites button in hover should be a link
+// Smol:
 // Hover effect on anything clickable
-
 
 // Not smol
 // Related movies
