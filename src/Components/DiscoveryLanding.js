@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import poster from '../assets/poster.png';
 import Footer from '../Components/Footer'
 
-const DiscoveryLanding = () => {
+const DiscoveryLanding = (props) => {
+    props.setter(false);
+
     const discoverURL = 'https://api.themoviedb.org/3/discover/movie/'; //Returns popular movie, doesn't take user query.
     const apiKey = 'a0e32a4a0c009553ac6020779811cc03';
     const [discoveryResults, setDiscoveryResults] = useState([])

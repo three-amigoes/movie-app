@@ -1,8 +1,10 @@
 import { useHistory, Link } from "react-router-dom";
 import logo from '../assets/logo.png'
 
-const Header = () => {
+const Header = (props) => {
     let history = useHistory();
+
+    // const [toggleButton, setToggleButton] = useState(true)
 
     // Changes endpoint to allow search of user query
     const handleSearchQuery = (event) => {
@@ -27,7 +29,12 @@ const Header = () => {
         history.goBack();
     };
 
-    console.log(history.location.pathname)
+    // const toggleState = () => {
+    //     setToggleButton(false);
+    //     console.log('howdy!')
+    // }
+
+
     return(
         <header className="wrapper">
             <div className="topBar">
@@ -42,11 +49,19 @@ const Header = () => {
                     </form>
                 </div>
                 {
-                    history.location.pathname === '/favorites' 
+                    props.onFavourite === true
                     ? 
                     <button onClick={goToPreviousPath} className="listButton"> Back </button>
                     :
                     <Link to='/favorites' className="listButton"> Favourites </Link>
+
+                    // toggleButton === true 
+                    // ?
+                    // <button onClick={toggleState} className="listButton"> Favourites </button>
+                    // :
+                    // <button onClick={toggleState} className="listButton"> Back </button>
+                    
+
                 }
             </div>
 
