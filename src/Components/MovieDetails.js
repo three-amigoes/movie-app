@@ -74,11 +74,11 @@ const MovieDetails = (props) => {
                 }
 
                 <div className="leftColumnButtons">
+                    <BackButton />
+
                     <FirebaseInteraction
                         movieDetails={movieDetails}
                     />
-
-                    <BackButton />
                 </div>
             </div>
 
