@@ -124,7 +124,6 @@ const FavoriteList = (props) => {
                                 </Link>
 
                                     <button className="removeButton" onClick={() => {removeFromList(item.key)}}> <span> &times; </span> </button>
-
                             </li>
                         )
                     })
