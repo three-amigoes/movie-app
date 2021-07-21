@@ -399,6 +399,23 @@ footer a {
   font-size: 2.25rem;
 }
 
+.credits {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  padding-top: .5rem;
+}
+
+.credits p {
+  padding-right: .4rem;
+}
+
+.credits img {
+  width: 21%;
+  min-width: 11rem;
+}
+
 /* styling with iconify icons */
 
 .buttonFB,

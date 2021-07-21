@@ -9,7 +9,7 @@ const BackButton = () => {
 
 
     return(
-        <button className="backButton" onClick={goToPreviousPath}><span class="iconify" data-icon="fluent:rewind-20-filled" data-inline="false"></span> Back</button>
+        <button className="backButton" onClick={goToPreviousPath}> Back</button>
     )
 }
 

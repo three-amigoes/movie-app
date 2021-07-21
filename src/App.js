@@ -32,10 +32,12 @@ export default App;
 
 // Smol
 // remove from favorites button after adding to favorites
+// get rid of icons D=
 // Add reference to TMDB in footer
+
+// clicking favorites button (top right) toggles between going back
 // Favorites button in hover should be a link
 // Hover effect on anything clickable
-// clicking favorites button (top right) toggles between going back
 
 
 // Not smol
