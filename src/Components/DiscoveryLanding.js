@@ -20,7 +20,7 @@ const DiscoveryLanding = (props) => {
         // });
         // fetch(url);
         const apiKey = '9709355fc5ce17fa911605a13712678d';
-        const movieURL = `https://api.themoviedb.org/3/movie/`;
+        const movieURL = `https://api.themoviedb.org/3/discover/movie/`;
         const url = new URL(movieURL);
         url.search = new URLSearchParams({
             api_key: apiKey,
