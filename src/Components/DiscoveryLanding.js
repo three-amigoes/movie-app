@@ -19,15 +19,7 @@ const DiscoveryLanding = (props) => {
         //     'params[adult]': false
         // });
         // fetch(url);
-        const apiKey = '9709355fc5ce17fa911605a13712678d';
-        const movieURL = `https://api.themoviedb.org/3/discover/movie/`;
-        const url = new URL(movieURL);
-        url.search = new URLSearchParams({
-            api_key: apiKey,
-            adult: 'false'
-        })
-        // fetch("https://api.themoviedb.org/3/discover/movie/?api_key=a0e32a4a0c009553ac6020779811cc03&adult=false")
-        fetch(url)
+        fetch("https://api.themoviedb.org/3/discover/movie/?api_key=a0e32a4a0c009553ac6020779811cc03&adult=false")
         .then( (rawData) => {
         return rawData.json();
         }).then( (jsonData) => {
